@@ -1,0 +1,359 @@
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { IMAGES } from "@/lib/assets";
+
+function FadeUp({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const ref = useRef(null);
+  const inView = useInView(ref, { once: true, margin: "-60px" });
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 30 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, delay, ease: "easeOut" }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+interface MenuItem { name: string; desc?: string; img?: string; veg?: boolean; }
+interface Category { name: string; items: MenuItem[]; }
+
+const vegSections: Category[] = [
+  {
+    name: "Sandwiches", items: [
+      { name: "Bambaiya Sandwich", desc: "Mumbai-style street sandwich with a gourmet twist", img: IMAGES.sandwichCoffee, veg: true },
+      { name: "Veg Club Sandwich", desc: "Layered club sandwich with fresh veggies & cheese", img: IMAGES.mocktailSandwich, veg: true },
+      { name: "Aloo Tikki Sandwich", desc: "Crispy aloo tikki with tangy chutneys", veg: true },
+      { name: "Cheese Burst Sandwich", desc: "Loaded with molten cheese in every bite", veg: true },
+      { name: "Classic Grilled Sandwich", desc: "Perfectly grilled with herbs and seasoning", veg: true },
+      { name: "Bread Butter Toast", desc: "Golden toasted bread with creamy butter", veg: true },
+      { name: "Toasted Bread & Jam", desc: "Classic toast with premium fruit jam", veg: true },
+    ]
+  },
+  {
+    name: "Pasta", items: [
+      { name: "Alfredo Pasta", desc: "Creamy white sauce pasta with parmesan", veg: true },
+      { name: "Arrabbiata Pasta", desc: "Spicy tomato sauce with fresh herbs", veg: true },
+      { name: "Pesto Pasta", desc: "Fresh basil pesto tossed with al dente pasta", veg: true },
+      { name: "Rosa Pasta", desc: "Perfect blend of red and white sauce", veg: true },
+      { name: "Mac & Cheese", desc: "Comfort classic with stretchy molten cheese", veg: true },
+    ]
+  },
+  {
+    name: "Fries", items: [
+      { name: "Regular Salted Fries", desc: "Crispy golden fries with seasalt", veg: true },
+      { name: "Peri Peri Fries", desc: "Tossed with fiery peri peri spice blend", veg: true },
+      { name: "Flaming Hot Fries", desc: "Extra spicy, for the brave ones", veg: true },
+      { name: "Cheese Deep Fries", desc: "Loaded with gooey melted cheese", veg: true },
+      { name: "Peri Peri Cheese Fries", desc: "Peri peri spice meets molten cheese", veg: true },
+      { name: "Pulled Cheese Fries", desc: "Slow-pulled cheese drizzled over crispy fries", veg: true },
+      { name: "Chipotle Fries", desc: "Smoky chipotle seasoning on crispy fries", veg: true },
+    ]
+  },
+  {
+    name: "Maggie", items: [
+      { name: "Plain Masala Maggie", desc: "Classic Maggie with our secret masala blend", img: IMAGES.spicyNoodles, veg: true },
+      { name: "Cheese Masala Maggie", desc: "Maggie topped with a generous cheese layer", veg: true },
+      { name: "Vegetable Masala Maggie", desc: "Loaded with fresh seasonal vegetables", veg: true },
+      { name: "3x Spicy Maggie", desc: "For those who dare — triple the heat", veg: true },
+    ]
+  },
+  {
+    name: "Garlic Bread", items: [
+      { name: "Cheese Garlic Bread", desc: "Crispy garlic bread smothered in cheese", veg: true },
+      { name: "Corn Cheese Garlic Bread", desc: "Sweet corn meets melted cheese on garlic bread", veg: true },
+      { name: "Cheese Chilly Garlic Bread", desc: "Spicy chilli flakes with cheese on garlic bread", veg: true },
+      { name: "Paneer Cheese Garlic Bread", desc: "Soft paneer and cheese on crispy garlic bread", veg: true },
+    ]
+  },
+  {
+    name: "Garage Gamble", items: [
+      { name: "Veggie Paneer Wrap", desc: "Soft wrap stuffed with spiced paneer and veggies", veg: true },
+      { name: "Veggie Paneer Taco", desc: "Crispy taco shell with herbed paneer filling", veg: true },
+    ]
+  },
+  {
+    name: "Sweet Tooth", items: [
+      { name: "Hot Chocolate", desc: "Rich, velvety hot chocolate with whipped cream", veg: true },
+      { name: "Sugar Rusk", desc: "Twice-baked rusks dusted with sugar", veg: true },
+      { name: "Chocolate Sandwich", desc: "Indulgent chocolate layered between soft bread", veg: true },
+      { name: "Death By Strawberry", desc: "Chocolate-dipped strawberries — our showstopper dessert", img: IMAGES.deathByStrawberry, veg: true },
+    ]
+  },
+  {
+    name: "Ice Cream", items: [
+      { name: "Choco Chip Ice Cream", desc: "Classic choco chip in a premium scoop", veg: true },
+      { name: "Honey Glaze Ice Cream", desc: "Creamy ice cream drizzled with wildflower honey", veg: true },
+      { name: "Minty Lemon Ice Cream", desc: "Refreshing mint and zesty lemon sorbet", veg: true },
+      { name: "Citric Blast Ice Cream", desc: "Bold citrus flavours in every scoop", veg: true },
+      { name: "Ice Cream Sundae", desc: "Layered sundae with sauces and toppings", veg: true },
+      { name: "Ice Cream Sandwich", desc: "Creamy ice cream between two crispy cookies", img: IMAGES.chocoCake, veg: true },
+    ]
+  },
+];
+
+const nonVegSections: Category[] = [
+  {
+    name: "Sandwiches", items: [
+      { name: "Chicken Bambaiya Sandwich", desc: "Mumbai-style chicken sandwich with premium fillings", img: IMAGES.sandwichesMojitos, veg: false },
+      { name: "Chicken Club Sandwich", desc: "Grilled chicken, fresh veggies, and house sauce", veg: false },
+      { name: "Four Egg Sandwich", desc: "Loaded with four perfectly cooked eggs", veg: false },
+    ]
+  },
+  {
+    name: "Fries", items: [
+      { name: "Chicken Flaming Hot Fries", desc: "Crispy fries tossed with flaming hot chicken bits", veg: false },
+      { name: "Chicken Pulled Cheese Fries", desc: "Pulled chicken and cheese over golden fries", veg: false },
+      { name: "Chicken Chipotle Fries", desc: "Smoky chipotle chicken over crispy fries", veg: false },
+    ]
+  },
+  {
+    name: "Maggie & Eggs", items: [
+      { name: "Egg Masala Maggie", desc: "Classic Maggie with perfectly cooked egg", veg: false },
+      { name: "Plain Egg Omelette", desc: "Fluffy two-egg omelette, simply done right", veg: false },
+      { name: "Corn Cheese Omelette", desc: "Sweet corn and cheese-filled egg omelette", veg: false },
+      { name: "Veggie Masala Omelette", desc: "Loaded with garden-fresh vegetables", veg: false },
+      { name: "Mushroom Cheese Omelette", desc: "Earthy mushrooms with melted cheese", veg: false },
+      { name: "Egg Bhurji", desc: "Spiced scrambled eggs Indian street style", veg: false },
+    ]
+  },
+  {
+    name: "Garlic Bread", items: [
+      { name: "Chicken Cheese Garlic Bread", desc: "Shredded chicken and cheese on crispy garlic bread", veg: false },
+    ]
+  },
+  {
+    name: "Garage Gamble", items: [
+      { name: "Chicken Wrap", desc: "Grilled chicken with fresh veggies in a soft wrap", veg: false },
+      { name: "Chicken Taco", desc: "Crispy taco shell with spiced chicken filling", veg: false },
+      { name: "Egg Wrap", desc: "Egg and veggie wrap with zesty sauce", veg: false },
+      { name: "Egg Taco", desc: "Crispy taco with spiced egg filling", veg: false },
+    ]
+  },
+];
+
+const beverageSections: { name: string; items: string[]; img?: string }[] = [
+  {
+    name: "Hot Coffee",
+    img: IMAGES.hotCoffee,
+    items: ["Cappuccino", "Espresso", "Americano", "Regular Coffee", "Chocolate Coffee", "Cinnamon Coffee", "Vanilla Coffee", "Black Coffee", "Affogato Coffee"]
+  },
+  {
+    name: "Hot Tea",
+    items: ["Tapri Chai", "Ginger Masala Tea", "Green Tea", "Lemon Tea", "Black Tea", "Lemon Mint Tea", "Honey Ginger Tea", "Cinnamon Tea"]
+  },
+  {
+    name: "Cold Coffee",
+    img: IMAGES.hotCoffee,
+    items: [
+      "Regular Cold Coffee", "Chocolate Cold Coffee", "Butterscotch Cold Coffee", "Caramel Cold Coffee",
+      "Regular Cold Coffee with Ice Cream", "Chocolate Cold Coffee with Ice Cream", "Butterscotch Cold Coffee with Ice Cream", "Caramel Cold Coffee with Ice Cream"
+    ]
+  },
+  {
+    name: "Iced Coffee",
+    items: ["Iced Americano", "Iced Vanilla Coffee", "Iced Honey & Cinnamon Coffee", "Iced Butterscotch Coffee", "Iced Chocolate Coffee", "Iced Cranberry Espresso", "Iced Mocha"]
+  },
+  {
+    name: "Milkshakes",
+    img: IMAGES.mocktailsColor,
+    items: ["Coconut Milk Shake", "Vanilla Milk Shake", "Strawberry Milk Shake", "Chocolate Milk Shake", "Pineapple Milk Shake", "Cookies & Cream Milk Shake"]
+  },
+  {
+    name: "Mocktails Premium",
+    img: IMAGES.mocktails,
+    items: ["Sex On The Beach", "Screwdriver", "Mint & Mist", "Blue Skull Berry", "Lemon Litchi Cooler", "Watermelon Cooler", "Lady In Blue Pool", "Bombay Cola"]
+  },
+  {
+    name: "Mocktails Classic",
+    img: IMAGES.berryMocktail,
+    items: ["Red Rubby Cooler", "Peach Paradise", "Mojito", "Tropical Mojito", "Apple Blast", "Guava Cooler", "Chilly Guava Cooler", "Kiwi Cooler", "Berry Blast"]
+  },
+];
+
+function VegIcon({ veg }: { veg?: boolean }) {
+  return (
+    <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${veg ? "border-green-500" : "border-red-500"}`}>
+      <div className={`w-2 h-2 rounded-full ${veg ? "bg-green-500" : "bg-red-500"}`} />
+    </div>
+  );
+}
+
+function MenuCard({ item }: { item: MenuItem }) {
+  return (
+    <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#D97706]/40 rounded-xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#D97706]/10">
+      {item.img && (
+        <div className="h-36 overflow-hidden">
+          <img src={item.img} alt={item.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-transparent to-black/50" />
+        </div>
+      )}
+      <div className="p-4">
+        <div className="flex items-start gap-2 mb-1">
+          <VegIcon veg={item.veg} />
+          <h4 className="font-['Playfair_Display'] text-white font-bold text-sm leading-tight">{item.name}</h4>
+        </div>
+        {item.desc && <p className="text-white/50 text-xs leading-relaxed mt-1 pl-6">{item.desc}</p>}
+      </div>
+    </div>
+  );
+}
+
+function SimpleItemCard({ name, img }: { name: string; img?: string }) {
+  return (
+    <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#D97706]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-default">
+      {img && (
+        <div className="h-28 overflow-hidden">
+          <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-transparent to-black/60" />
+        </div>
+      )}
+      {!img && (
+        <div className="h-1 bg-gradient-to-r from-[#D97706] to-[#B87333]" />
+      )}
+      <div className="p-3">
+        <p className="text-white/80 text-sm font-['Poppins'] font-medium leading-snug">{name}</p>
+      </div>
+    </div>
+  );
+}
+
+export default function MenuPage() {
+  const [mainTab, setMainTab] = useState<"food" | "beverages">("food");
+  const [foodTab, setFoodTab] = useState<"veg" | "nonveg">("veg");
+  const [bevTab, setBevTab] = useState("Hot Coffee");
+
+  const currentBev = beverageSections.find(b => b.name === bevTab)!;
+
+  return (
+    <div className="min-h-screen bg-[#111111] font-['Poppins'] pt-20">
+      {/* Header */}
+      <div className="relative py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0">
+          <img src={IMAGES.pizzaMenu} alt="" className="w-full h-full object-cover opacity-15" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111111]/80 via-[#111111]/70 to-[#111111]" />
+        </div>
+        <div className="relative max-w-4xl mx-auto text-center">
+          <FadeUp>
+            <span className="text-[#D97706] font-['Montserrat'] font-semibold text-xs tracking-[0.4em] uppercase">Our Offerings</span>
+            <h1 className="font-['Bebas_Neue'] text-6xl sm:text-8xl text-white mt-3 tracking-wider">
+              THE GARAGE <span className="text-[#D97706]">MENU</span>
+            </h1>
+            <div className="w-20 h-0.5 bg-[#D97706] mx-auto mt-4" />
+            <p className="text-white/50 mt-4 font-['Playfair_Display'] italic text-lg">Handcrafted with passion. Served with love.</p>
+          </FadeUp>
+        </div>
+      </div>
+
+      {/* Main Tabs: FOOD | BEVERAGES */}
+      <div className="sticky top-16 lg:top-20 z-30 bg-[#111111]/95 backdrop-blur-md border-b border-white/10">
+        <div className="max-w-6xl mx-auto px-4 flex gap-1 py-3">
+          {(["food", "beverages"] as const).map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setMainTab(tab)}
+              className={`font-['Montserrat'] font-semibold text-sm tracking-widest uppercase px-6 py-2.5 rounded-full transition-all duration-300 ${
+                mainTab === tab
+                  ? "bg-[#D97706] text-white shadow-lg shadow-[#D97706]/30"
+                  : "text-white/50 hover:text-white"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 py-10 pb-20">
+        {/* FOOD */}
+        {mainTab === "food" && (
+          <div>
+            {/* VEG / NON VEG */}
+            <div className="flex gap-3 mb-10">
+              {(["veg", "nonveg"] as const).map((t) => (
+                <button
+                  key={t}
+                  onClick={() => setFoodTab(t)}
+                  className={`flex items-center gap-2 font-['Montserrat'] font-semibold text-sm tracking-wider uppercase px-5 py-2.5 rounded-full border-2 transition-all duration-300 ${
+                    foodTab === t
+                      ? t === "veg" ? "border-green-500 bg-green-500/20 text-green-400" : "border-red-500 bg-red-500/20 text-red-400"
+                      : "border-white/10 text-white/40 hover:border-white/30 hover:text-white/70"
+                  }`}
+                >
+                  <div className={`w-3 h-3 rounded-full ${t === "veg" ? "bg-green-500" : "bg-red-500"}`} />
+                  {t === "veg" ? "Vegetarian" : "Non-Vegetarian"}
+                </button>
+              ))}
+            </div>
+
+            {(foodTab === "veg" ? vegSections : nonVegSections).map((section) => (
+              <FadeUp key={section.name} className="mb-10">
+                <div className="flex items-center gap-4 mb-5">
+                  <h3 className="font-['Bebas_Neue'] text-3xl text-white tracking-widest">{section.name}</h3>
+                  <div className="flex-1 h-px bg-gradient-to-r from-[#D97706]/40 to-transparent" />
+                </div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                  {section.items.map((item) => (
+                    <MenuCard key={item.name} item={item} />
+                  ))}
+                </div>
+              </FadeUp>
+            ))}
+          </div>
+        )}
+
+        {/* BEVERAGES */}
+        {mainTab === "beverages" && (
+          <div>
+            {/* Sub tabs */}
+            <div className="flex flex-wrap gap-2 mb-10">
+              {beverageSections.map((b) => (
+                <button
+                  key={b.name}
+                  onClick={() => setBevTab(b.name)}
+                  className={`font-['Montserrat'] font-semibold text-xs tracking-wider uppercase px-4 py-2 rounded-full border transition-all duration-300 ${
+                    bevTab === b.name
+                      ? "border-[#D97706] bg-[#D97706]/15 text-[#D97706]"
+                      : "border-white/10 text-white/40 hover:border-white/30 hover:text-white/70"
+                  }`}
+                >
+                  {b.name}
+                </button>
+              ))}
+            </div>
+
+            <FadeUp>
+              <div className="flex items-center gap-4 mb-6">
+                <h3 className="font-['Bebas_Neue'] text-4xl text-white tracking-widest">{currentBev.name}</h3>
+                <div className="flex-1 h-px bg-gradient-to-r from-[#D97706]/40 to-transparent" />
+              </div>
+
+              {currentBev.img && (
+                <div className="mb-8 rounded-2xl overflow-hidden h-48">
+                  <img src={currentBev.img} alt={currentBev.name} className="w-full h-full object-cover" loading="lazy" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] to-transparent" />
+                </div>
+              )}
+
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                {currentBev.items.map((item) => (
+                  <SimpleItemCard key={item} name={item} />
+                ))}
+              </div>
+            </FadeUp>
+          </div>
+        )}
+      </div>
+
+      {/* Bottom note */}
+      <div className="bg-[#0d0d0d] border-t border-white/5 py-8 px-4 text-center">
+        <p className="text-white/40 text-sm font-['Poppins'] italic">
+          All items prepared fresh to order. Please inform us of any allergies.
+        </p>
+      </div>
+    </div>
+  );
+}
