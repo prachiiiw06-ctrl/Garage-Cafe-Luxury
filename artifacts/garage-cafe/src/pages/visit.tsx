@@ -94,6 +94,36 @@ const services = [
   { icon: "🅿️", name: "Parking", desc: "Ample parking available outside" },
 ];
 
+const birthdayIncludes = [
+  "1 Hour Celebration Venue",
+  "250 Gm Cake (Chocolate, Black Forest, Fruit Cake)",
+  "Sound & Music",
+  "Lights & Decoration",
+  "Balloons of Choice",
+  "10% Discount on Ordered Food",
+];
+
+const birthdayExtras = [
+  "Flowers",
+  "Customized Cake",
+  "Flower Decoration",
+  "Canopy",
+  "Photo Grid",
+  "Photobooth",
+  "Selfie Corner",
+];
+
+const cafeRules = [
+  "Minimum Sitting Charges ₹100/- per hour",
+  "Self Service & Order at the Desk",
+  "Without Order ₹100/- per hour",
+  "For Studies or Work ₹150/- per hour",
+  "Be Careful with Books and Games",
+  "Do not Change the Layout of the Cafe",
+  "Maintain Decorum of the Cafe",
+  "Do not Disturb Other Guests",
+];
+
 export default function Visit() {
   return (
     <div className="min-h-screen bg-[#111111] font-['Poppins'] pt-20">
@@ -197,6 +227,126 @@ export default function Visit() {
               </FadeUp>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Birthday Celebration Package */}
+      <div className="py-20 px-4 bg-[#111111]">
+        <div className="max-w-6xl mx-auto">
+          <FadeUp className="text-center mb-14">
+            <span className="text-[#D97706] font-['Montserrat'] font-semibold text-xs tracking-[0.4em] uppercase">Celebrate With Us</span>
+            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-white mt-3 tracking-wider">
+              BIRTHDAY <span className="text-[#D97706]">PLANS</span>
+            </h2>
+            <div className="w-20 h-0.5 bg-[#D97706] mx-auto mt-4" />
+            <p className="text-white/50 mt-4 font-['Playfair_Display'] italic text-lg max-w-xl mx-auto">
+              Make your special day unforgettable at The Garage Cafe
+            </p>
+          </FadeUp>
+
+          <div className="grid lg:grid-cols-2 gap-8 items-start">
+            {/* Birthday photos */}
+            <FadeUp>
+              <div className="grid grid-cols-2 gap-3">
+                <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                  <img src={IMAGES.birthday1} alt="Birthday celebration" className="w-full h-full object-cover object-top" loading="lazy" />
+                </div>
+                <div className="rounded-2xl overflow-hidden aspect-[3/4]">
+                  <img src={IMAGES.birthday2} alt="Birthday celebration" className="w-full h-full object-cover object-top" loading="lazy" />
+                </div>
+              </div>
+            </FadeUp>
+
+            {/* Package details */}
+            <div className="space-y-6">
+              {/* Price tag */}
+              <FadeUp>
+                <div className="inline-flex items-center gap-3 bg-[#D97706] rounded-full px-6 py-3">
+                  <span className="font-['Bebas_Neue'] text-white text-2xl tracking-wider">Birthday Celebration Package</span>
+                </div>
+                <div className="mt-3">
+                  <span className="font-['Bebas_Neue'] text-5xl text-[#D97706]">₹1500</span>
+                  <span className="text-white/60 font-['Poppins'] text-lg ml-2">/ per hour</span>
+                </div>
+              </FadeUp>
+
+              {/* What We Provide */}
+              <FadeUp delay={0.1}>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                  <h4 className="font-['Bebas_Neue'] text-xl text-[#D97706] tracking-widest uppercase mb-4">What We Provide</h4>
+                  <ul className="space-y-3">
+                    {birthdayIncludes.map((item) => (
+                      <li key={item} className="flex items-start gap-3 text-white/80 text-sm font-['Poppins']">
+                        <span className="w-2 h-2 rounded-full bg-[#D97706] flex-shrink-0 mt-1.5" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </FadeUp>
+
+              {/* Payable Extras */}
+              <FadeUp delay={0.2}>
+                <div className="bg-[#D97706]/5 border border-[#D97706]/20 rounded-2xl p-6">
+                  <h4 className="font-['Bebas_Neue'] text-xl text-[#B87333] tracking-widest uppercase mb-4">Payable Extras</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {birthdayExtras.map((item) => (
+                      <span key={item} className="px-3 py-1.5 bg-[#D97706]/10 border border-[#D97706]/20 rounded-full text-white/70 text-xs font-['Montserrat'] font-semibold tracking-wide">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </FadeUp>
+
+              {/* CTA */}
+              <FadeUp delay={0.3}>
+                <a href="https://wa.me/91XXXXXXXXXX" target="_blank" rel="noopener noreferrer">
+                  <button className="w-full bg-[#D97706] hover:bg-[#B87333] text-white font-['Montserrat'] font-semibold tracking-widest uppercase py-4 rounded-full transition-all hover:shadow-lg hover:shadow-[#D97706]/30 hover:scale-105 text-sm">
+                    Book Your Birthday Now
+                  </button>
+                </a>
+              </FadeUp>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Cafe Rules */}
+      <div className="py-20 px-4 bg-[#0d0d0d]">
+        <div className="max-w-4xl mx-auto">
+          <FadeUp className="text-center mb-12">
+            <span className="text-[#D97706] font-['Montserrat'] font-semibold text-xs tracking-[0.4em] uppercase">House Guidelines</span>
+            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-white mt-3 tracking-wider">
+              PLEASE <span className="text-[#D97706]">READ ME</span>
+            </h2>
+            <div className="w-20 h-0.5 bg-[#D97706] mx-auto mt-4" />
+            <p className="text-white/50 mt-4 font-['Playfair_Display'] italic">
+              To ensure everyone has a great experience at The Garage Cafe
+            </p>
+          </FadeUp>
+
+          <FadeUp delay={0.1}>
+            <div className="relative bg-gradient-to-br from-white/5 to-white/[0.02] border border-white/10 rounded-3xl p-8 sm:p-12 overflow-hidden">
+              {/* Decorative background text */}
+              <div className="absolute top-0 right-4 font-['Bebas_Neue'] text-[160px] text-white/[0.02] leading-none select-none pointer-events-none">RULES</div>
+
+              <div className="grid sm:grid-cols-2 gap-4 relative z-10">
+                {cafeRules.map((rule, i) => (
+                  <div key={rule} className="flex items-start gap-4 p-4 bg-white/[0.03] border border-white/5 rounded-xl hover:border-[#D97706]/20 transition-colors">
+                    <span className="font-['Bebas_Neue'] text-2xl text-[#D97706]/40 leading-none w-7 flex-shrink-0">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="text-white/70 text-sm font-['Poppins'] leading-relaxed pt-0.5">{rule}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/10 text-center relative z-10">
+                <p className="font-['Playfair_Display'] italic text-white/40 text-sm">Thank you for being a part of our community</p>
+                <p className="text-[#D97706] font-['Montserrat'] font-semibold tracking-wider text-sm mt-2">— Chef Suyog Muley</p>
+                <p className="text-white/30 font-['Poppins'] text-xs mt-1">Md, S&S Foods, The Garage Cafe</p>
+              </div>
+            </div>
+          </FadeUp>
         </div>
       </div>
 

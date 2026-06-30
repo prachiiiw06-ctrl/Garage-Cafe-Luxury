@@ -25,30 +25,35 @@ const timeline = [
     desc: "It all started with a simple belief — that great food should feel like a warm hug. Our founder's passion for bold flavours and fresh ingredients laid the foundation for everything The Garage Cafe stands for.",
     img: IMAGES.chef,
     imgPosition: "object-top",
+    imgHeight: "h-96",
   },
   {
     year: "02",
     title: "The Garage Concept",
     desc: "Inspired by the freedom of motorcycles and the camaraderie of the open road, we created a space unlike any other. Industrial steel, warm wood, and actual motorcycles on the walls — this is the garage where every rider belongs.",
     img: IMAGES.interiorBike,
+    imgHeight: "h-64",
   },
   {
     year: "03",
     title: "Quality Ingredients",
     desc: "We believe in honesty on the plate. Every ingredient is handpicked, every recipe tested until it's perfect. From our cold-brewed coffees to our freshly baked bread — quality is never negotiable.",
     img: IMAGES.hotCoffee,
+    imgHeight: "h-64",
   },
   {
     year: "04",
     title: "Fresh Preparation",
     desc: "Nothing here is made in advance. Every dish is prepared fresh to order, because we know the difference between something that was made and something that was crafted.",
     img: IMAGES.chocoCake,
+    imgHeight: "h-64",
   },
   {
     year: "05",
     title: "Warm Hospitality",
     desc: "At The Garage Cafe, every guest is family. Our team brings warmth, smiles, and passion to every interaction. We don't just serve food — we create memories that keep you coming back.",
     img: IMAGES.exteriorNight,
+    imgHeight: "h-64",
   },
 ];
 
@@ -70,11 +75,16 @@ const showcasePhotos = [
 export default function About() {
   return (
     <div className="min-h-screen bg-[#111111] font-['Poppins'] pt-20">
-      {/* Hero */}
+      {/* Hero — using exterior day photo so the entrance is clearly visible */}
       <div className="relative py-24 px-4 overflow-hidden">
         <div className="absolute inset-0">
-          <img src={IMAGES.interiorBike} alt="" className="w-full h-full object-cover opacity-20" loading="eager" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#111111]/60 via-[#111111]/50 to-[#111111]" />
+          <img
+            src={IMAGES.exteriorDay}
+            alt=""
+            className="w-full h-full object-cover object-center opacity-30"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#111111]/50 via-[#111111]/40 to-[#111111]" />
         </div>
         <div className="relative max-w-4xl mx-auto text-center">
           <FadeUp>
@@ -83,10 +93,75 @@ export default function About() {
               MORE THAN A <span className="text-[#D97706]">CAFE</span>
             </h1>
             <div className="w-20 h-0.5 bg-[#D97706] mx-auto mt-4" />
-            <p className="text-white/60 mt-5 font-['Playfair_Display'] italic text-xl max-w-2xl mx-auto leading-relaxed">
+            <p className="text-white/70 mt-5 font-['Playfair_Display'] italic text-xl max-w-2xl mx-auto leading-relaxed">
               Born from passion, built for community — where every guest is family and every meal is a memory.
             </p>
           </FadeUp>
+        </div>
+      </div>
+
+      {/* By The Chef */}
+      <div className="py-20 px-4 bg-[#0d0d0d]">
+        <div className="max-w-6xl mx-auto">
+          <FadeUp className="text-center mb-14">
+            <span className="text-[#D97706] font-['Montserrat'] font-semibold text-xs tracking-[0.4em] uppercase">A Note From Our Kitchen</span>
+            <h2 className="font-['Bebas_Neue'] text-5xl sm:text-6xl text-white mt-3 tracking-wider">
+              BY THE <span className="text-[#D97706]">CHEF</span>
+            </h2>
+            <div className="w-20 h-0.5 bg-[#D97706] mx-auto mt-4" />
+          </FadeUp>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Chef photo — large, prominent */}
+            <FadeUp>
+              <div className="relative">
+                <div className="rounded-3xl overflow-hidden">
+                  <img
+                    src={IMAGES.chef}
+                    alt="Chef Suyog Muley"
+                    className="w-full h-[520px] object-cover object-top"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111]/60 via-transparent to-transparent" />
+                </div>
+                {/* Name badge */}
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-[#111111]/80 backdrop-blur-sm border border-[#D97706]/30 rounded-2xl p-4">
+                    <p className="font-['Bebas_Neue'] text-2xl text-white tracking-widest">Chef Suyog Muley</p>
+                    <p className="text-[#D97706] font-['Montserrat'] font-semibold text-xs tracking-wider mt-1">Md, S&S Foods · The Garage Cafe</p>
+                  </div>
+                </div>
+                {/* Decorative corner */}
+                <div className="absolute -top-3 -left-3 w-24 h-24 border-t-2 border-l-2 border-[#D97706]/40 rounded-tl-2xl" />
+                <div className="absolute -bottom-3 -right-3 w-24 h-24 border-b-2 border-r-2 border-[#D97706]/40 rounded-br-2xl" />
+              </div>
+            </FadeUp>
+
+            {/* Chef's message */}
+            <FadeUp delay={0.15}>
+              <div className="relative">
+                <div className="absolute -top-4 -left-4 font-['Bebas_Neue'] text-[120px] text-[#D97706]/8 leading-none select-none">"</div>
+                <div className="relative z-10">
+                  <p className="font-['Playfair_Display'] italic text-white/75 text-lg leading-relaxed mb-6">
+                    The Garage Cafe menu offers a diverse range of delicious, handcrafted meals and beverages that cater to all tastes. Start with a selection of gourmet sandwiches, Pizzas and hearty burgers, or indulge in comforting breakfast classics.
+                  </p>
+                  <p className="font-['Playfair_Display'] italic text-white/75 text-lg leading-relaxed mb-6">
+                    Satisfy your sweet tooth with decadent desserts, made daily. For beverages, enjoy expertly brewed coffee, refreshing Coolers, and specialty teas. The atmosphere is cozy and inviting, making it the perfect spot for both a quick bite or a leisurely meal.
+                  </p>
+                  <p className="font-['Playfair_Display'] italic text-white/75 text-lg leading-relaxed mb-8">
+                    Whether you're craving a savory snack or a sweet treat, The Garage Cafe has something for every palate.
+                  </p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-0.5 bg-[#D97706]" />
+                    <div>
+                      <p className="text-[#D97706] font-['Montserrat'] font-semibold tracking-wider text-sm">Chef Suyog Muley</p>
+                      <p className="text-white/40 font-['Poppins'] text-xs mt-0.5">Md, S&S Foods, The Garage Cafe</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeUp>
+          </div>
         </div>
       </div>
 
@@ -142,7 +217,7 @@ export default function About() {
                         <img
                           src={item.img}
                           alt={item.title}
-                          className={`w-full h-64 object-cover ${item.imgPosition ?? ""} group-hover:scale-105 transition-transform duration-500`}
+                          className={`w-full ${item.imgHeight ?? "h-64"} object-cover ${item.imgPosition ?? ""} group-hover:scale-105 transition-transform duration-500`}
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-br from-[#D97706]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
