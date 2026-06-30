@@ -18,14 +18,14 @@ function FadeUp({ children, className = "", delay = 0 }: { children: React.React
   );
 }
 
-interface MenuItem { name: string; desc?: string; img?: string; veg?: boolean; }
+interface MenuItem { name: string; desc?: string; veg?: boolean; }
 interface Category { name: string; items: MenuItem[]; }
 
 const vegSections: Category[] = [
   {
     name: "Sandwiches", items: [
-      { name: "Bambaiya Sandwich", desc: "Mumbai-style street sandwich with a gourmet twist", img: IMAGES.sandwichCoffee, veg: true },
-      { name: "Veg Club Sandwich", desc: "Layered club sandwich with fresh veggies & cheese", img: IMAGES.mocktailSandwich, veg: true },
+      { name: "Bambaiya Sandwich", desc: "Mumbai-style street sandwich with a gourmet twist", veg: true },
+      { name: "Veg Club Sandwich", desc: "Layered club sandwich with fresh veggies & cheese", veg: true },
       { name: "Aloo Tikki Sandwich", desc: "Crispy aloo tikki with tangy chutneys", veg: true },
       { name: "Cheese Burst Sandwich", desc: "Loaded with molten cheese in every bite", veg: true },
       { name: "Classic Grilled Sandwich", desc: "Perfectly grilled with herbs and seasoning", veg: true },
@@ -44,7 +44,7 @@ const vegSections: Category[] = [
   },
   {
     name: "Fries", items: [
-      { name: "Regular Salted Fries", desc: "Crispy golden fries with seasalt", veg: true },
+      { name: "Regular Salted Fries", desc: "Crispy golden fries with sea salt", veg: true },
       { name: "Peri Peri Fries", desc: "Tossed with fiery peri peri spice blend", veg: true },
       { name: "Flaming Hot Fries", desc: "Extra spicy, for the brave ones", veg: true },
       { name: "Cheese Deep Fries", desc: "Loaded with gooey melted cheese", veg: true },
@@ -55,7 +55,7 @@ const vegSections: Category[] = [
   },
   {
     name: "Maggie", items: [
-      { name: "Plain Masala Maggie", desc: "Classic Maggie with our secret masala blend", img: IMAGES.spicyNoodles, veg: true },
+      { name: "Plain Masala Maggie", desc: "Classic Maggie with our secret masala blend", veg: true },
       { name: "Cheese Masala Maggie", desc: "Maggie topped with a generous cheese layer", veg: true },
       { name: "Vegetable Masala Maggie", desc: "Loaded with fresh seasonal vegetables", veg: true },
       { name: "3x Spicy Maggie", desc: "For those who dare — triple the heat", veg: true },
@@ -80,7 +80,7 @@ const vegSections: Category[] = [
       { name: "Hot Chocolate", desc: "Rich, velvety hot chocolate with whipped cream", veg: true },
       { name: "Sugar Rusk", desc: "Twice-baked rusks dusted with sugar", veg: true },
       { name: "Chocolate Sandwich", desc: "Indulgent chocolate layered between soft bread", veg: true },
-      { name: "Death By Strawberry", desc: "Chocolate-dipped strawberries — our showstopper dessert", img: IMAGES.deathByStrawberry, veg: true },
+      { name: "Death By Strawberry", desc: "Chocolate-dipped strawberries — our showstopper dessert", veg: true },
     ]
   },
   {
@@ -90,7 +90,7 @@ const vegSections: Category[] = [
       { name: "Minty Lemon Ice Cream", desc: "Refreshing mint and zesty lemon sorbet", veg: true },
       { name: "Citric Blast Ice Cream", desc: "Bold citrus flavours in every scoop", veg: true },
       { name: "Ice Cream Sundae", desc: "Layered sundae with sauces and toppings", veg: true },
-      { name: "Ice Cream Sandwich", desc: "Creamy ice cream between two crispy cookies", img: IMAGES.chocoCake, veg: true },
+      { name: "Ice Cream Sandwich", desc: "Creamy ice cream between two crispy cookies", veg: true },
     ]
   },
 ];
@@ -98,7 +98,7 @@ const vegSections: Category[] = [
 const nonVegSections: Category[] = [
   {
     name: "Sandwiches", items: [
-      { name: "Chicken Bambaiya Sandwich", desc: "Mumbai-style chicken sandwich with premium fillings", img: IMAGES.sandwichesMojitos, veg: false },
+      { name: "Chicken Bambaiya Sandwich", desc: "Mumbai-style chicken sandwich with premium fillings", veg: false },
       { name: "Chicken Club Sandwich", desc: "Grilled chicken, fresh veggies, and house sauce", veg: false },
       { name: "Four Egg Sandwich", desc: "Loaded with four perfectly cooked eggs", veg: false },
     ]
@@ -135,10 +135,9 @@ const nonVegSections: Category[] = [
   },
 ];
 
-const beverageSections: { name: string; items: string[]; img?: string }[] = [
+const beverageSections: { name: string; items: string[] }[] = [
   {
     name: "Hot Coffee",
-    img: IMAGES.hotCoffee,
     items: ["Cappuccino", "Espresso", "Americano", "Regular Coffee", "Chocolate Coffee", "Cinnamon Coffee", "Vanilla Coffee", "Black Coffee", "Affogato Coffee"]
   },
   {
@@ -147,7 +146,6 @@ const beverageSections: { name: string; items: string[]; img?: string }[] = [
   },
   {
     name: "Cold Coffee",
-    img: IMAGES.hotCoffee,
     items: [
       "Regular Cold Coffee", "Chocolate Cold Coffee", "Butterscotch Cold Coffee", "Caramel Cold Coffee",
       "Regular Cold Coffee with Ice Cream", "Chocolate Cold Coffee with Ice Cream", "Butterscotch Cold Coffee with Ice Cream", "Caramel Cold Coffee with Ice Cream"
@@ -159,24 +157,31 @@ const beverageSections: { name: string; items: string[]; img?: string }[] = [
   },
   {
     name: "Milkshakes",
-    img: IMAGES.mocktailsColor,
     items: ["Coconut Milk Shake", "Vanilla Milk Shake", "Strawberry Milk Shake", "Chocolate Milk Shake", "Pineapple Milk Shake", "Cookies & Cream Milk Shake"]
   },
   {
     name: "Mocktails Premium",
-    img: IMAGES.mocktails,
     items: ["Sex On The Beach", "Screwdriver", "Mint & Mist", "Blue Skull Berry", "Lemon Litchi Cooler", "Watermelon Cooler", "Lady In Blue Pool", "Bombay Cola"]
   },
   {
     name: "Mocktails Classic",
-    img: IMAGES.berryMocktail,
     items: ["Red Rubby Cooler", "Peach Paradise", "Mojito", "Tropical Mojito", "Apple Blast", "Guava Cooler", "Chilly Guava Cooler", "Kiwi Cooler", "Berry Blast"]
   },
 ];
 
+/* Photos shown as a quality/hygiene showcase — not tied to any specific item */
+const qualityPhotos = [
+  { img: IMAGES.sandwichesMojitos, label: "Freshly Prepared" },
+  { img: IMAGES.hotCoffee, label: "Handcrafted Coffee" },
+  { img: IMAGES.deathByStrawberry, label: "Premium Desserts" },
+  { img: IMAGES.mocktailsColor, label: "Signature Mocktails" },
+  { img: IMAGES.spicyNoodles, label: "Bold Flavours" },
+  { img: IMAGES.chocoCake, label: "Decadent Sweets" },
+];
+
 function VegIcon({ veg }: { veg?: boolean }) {
   return (
-    <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${veg ? "border-green-500" : "border-red-500"}`}>
+    <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 mt-0.5 ${veg ? "border-green-500" : "border-red-500"}`}>
       <div className={`w-2 h-2 rounded-full ${veg ? "bg-green-500" : "bg-red-500"}`} />
     </div>
   );
@@ -184,39 +189,21 @@ function VegIcon({ veg }: { veg?: boolean }) {
 
 function MenuCard({ item }: { item: MenuItem }) {
   return (
-    <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#D97706]/40 rounded-xl overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:shadow-xl hover:shadow-[#D97706]/10">
-      {item.img && (
-        <div className="h-36 overflow-hidden">
-          <img src={item.img} alt={item.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-          <div className="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-transparent to-black/50" />
-        </div>
-      )}
-      <div className="p-4">
-        <div className="flex items-start gap-2 mb-1">
-          <VegIcon veg={item.veg} />
-          <h4 className="font-['Playfair_Display'] text-white font-bold text-sm leading-tight">{item.name}</h4>
-        </div>
-        {item.desc && <p className="text-white/50 text-xs leading-relaxed mt-1 pl-6">{item.desc}</p>}
+    <div className="group flex items-start gap-3 p-4 bg-white/5 backdrop-blur-sm border border-white/8 hover:border-[#D97706]/40 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#D97706]/8">
+      <VegIcon veg={item.veg} />
+      <div className="min-w-0">
+        <h4 className="font-['Playfair_Display'] text-white font-bold text-sm leading-snug">{item.name}</h4>
+        {item.desc && <p className="text-white/45 text-xs leading-relaxed mt-1">{item.desc}</p>}
       </div>
     </div>
   );
 }
 
-function SimpleItemCard({ name, img }: { name: string; img?: string }) {
+function SimpleItemCard({ name }: { name: string }) {
   return (
-    <div className="group relative bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#D97706]/40 rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-default">
-      {img && (
-        <div className="h-28 overflow-hidden">
-          <img src={img} alt={name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
-          <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-transparent to-black/60" />
-        </div>
-      )}
-      {!img && (
-        <div className="h-1 bg-gradient-to-r from-[#D97706] to-[#B87333]" />
-      )}
-      <div className="p-3">
-        <p className="text-white/80 text-sm font-['Poppins'] font-medium leading-snug">{name}</p>
-      </div>
+    <div className="flex items-center gap-3 p-3.5 bg-white/5 border border-white/8 hover:border-[#D97706]/40 rounded-xl transition-all duration-300 hover:-translate-y-0.5 cursor-default group">
+      <div className="w-1.5 h-1.5 rounded-full bg-[#D97706] flex-shrink-0 group-hover:scale-125 transition-transform" />
+      <p className="text-white/80 text-sm font-['Poppins'] font-medium leading-snug">{name}</p>
     </div>
   );
 }
@@ -231,7 +218,7 @@ export default function MenuPage() {
   return (
     <div className="min-h-screen bg-[#111111] font-['Poppins'] pt-20">
       {/* Header */}
-      <div className="relative py-20 px-4 overflow-hidden">
+      <div className="relative py-16 px-4 overflow-hidden">
         <div className="absolute inset-0">
           <img src={IMAGES.pizzaMenu} alt="" className="w-full h-full object-cover opacity-15" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#111111]/80 via-[#111111]/70 to-[#111111]" />
@@ -244,6 +231,39 @@ export default function MenuPage() {
             </h1>
             <div className="w-20 h-0.5 bg-[#D97706] mx-auto mt-4" />
             <p className="text-white/50 mt-4 font-['Playfair_Display'] italic text-lg">Handcrafted with passion. Served with love.</p>
+          </FadeUp>
+        </div>
+      </div>
+
+      {/* Quality & Hygiene Photo Strip */}
+      <div className="px-4 pb-10">
+        <div className="max-w-6xl mx-auto">
+          <FadeUp>
+            <div className="mb-4 flex items-center gap-3">
+              <div className="w-1 h-5 bg-[#D97706] rounded-full" />
+              <span className="text-white/40 text-xs font-['Montserrat'] font-semibold tracking-[0.3em] uppercase">From Our Kitchen</span>
+            </div>
+            <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+              {qualityPhotos.map((p, i) => (
+                <div key={i} className="group relative rounded-xl overflow-hidden aspect-square">
+                  <img
+                    src={p.img}
+                    alt={p.label}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-2 translate-y-1 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                    <span className="text-white text-[10px] font-['Montserrat'] font-semibold tracking-wider block text-center leading-tight">
+                      {p.label}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-white/25 text-xs text-center mt-3 font-['Poppins'] italic">
+              All food prepared fresh daily in our hygienic kitchen
+            </p>
           </FadeUp>
         </div>
       </div>
@@ -279,7 +299,7 @@ export default function MenuPage() {
                   onClick={() => setFoodTab(t)}
                   className={`flex items-center gap-2 font-['Montserrat'] font-semibold text-sm tracking-wider uppercase px-5 py-2.5 rounded-full border-2 transition-all duration-300 ${
                     foodTab === t
-                      ? t === "veg" ? "border-green-500 bg-green-500/20 text-green-400" : "border-red-500 bg-red-500/20 text-red-400"
+                      ? t === "veg" ? "border-green-500 bg-green-500/15 text-green-400" : "border-red-500 bg-red-500/15 text-red-400"
                       : "border-white/10 text-white/40 hover:border-white/30 hover:text-white/70"
                   }`}
                 >
@@ -295,7 +315,7 @@ export default function MenuPage() {
                   <h3 className="font-['Bebas_Neue'] text-3xl text-white tracking-widest">{section.name}</h3>
                   <div className="flex-1 h-px bg-gradient-to-r from-[#D97706]/40 to-transparent" />
                 </div>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                   {section.items.map((item) => (
                     <MenuCard key={item.name} item={item} />
                   ))}
@@ -331,14 +351,7 @@ export default function MenuPage() {
                 <div className="flex-1 h-px bg-gradient-to-r from-[#D97706]/40 to-transparent" />
               </div>
 
-              {currentBev.img && (
-                <div className="mb-8 rounded-2xl overflow-hidden h-48">
-                  <img src={currentBev.img} alt={currentBev.name} className="w-full h-full object-cover" loading="lazy" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#111111] to-transparent" />
-                </div>
-              )}
-
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                 {currentBev.items.map((item) => (
                   <SimpleItemCard key={item} name={item} />
                 ))}
