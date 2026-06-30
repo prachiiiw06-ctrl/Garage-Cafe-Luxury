@@ -278,30 +278,19 @@ export default function Home() {
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {featured.map((item, i) => (
                 <FadeUp key={item.name} delay={i * 0.08}>
-                  <div className="group relative rounded-2xl overflow-hidden bg-[#1a1a1a] border border-white/5 hover:border-[#D97706]/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#D97706]/15 cursor-pointer">
-                    <div className="relative h-56 overflow-hidden">
+                  <div className="group relative rounded-2xl overflow-hidden border border-white/5 hover:border-[#D97706]/40 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#D97706]/20 cursor-pointer">
+                    <div className="relative h-72 overflow-hidden">
                       <img
                         src={item.img}
-                        alt={item.name}
+                        alt=""
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      <span className="absolute top-3 right-3 bg-[#D97706] text-white text-[10px] font-['Montserrat'] font-semibold tracking-wider uppercase px-3 py-1 rounded-full">
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                      <span className="absolute top-3 right-3 bg-[#D97706] text-white text-[10px] font-['Montserrat'] font-semibold tracking-wider uppercase px-3 py-1 rounded-full shadow-lg">
                         {item.tag}
                       </span>
                     </div>
-                    <div className="p-5">
-                      <h3 className="font-['Playfair_Display'] text-white font-bold text-xl mb-2">{item.name}</h3>
-                      <p className="text-white/50 text-sm leading-relaxed">{item.desc}</p>
-                      <div className="mt-4 flex items-center gap-2">
-                        <div className="w-6 h-px bg-[#D97706]" />
-                        <span className="text-[#D97706] text-xs font-['Montserrat'] font-semibold tracking-wider uppercase">View Menu</span>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                      style={{ background: "radial-gradient(circle at 50% 0%, rgba(217,119,6,0.04) 0%, transparent 70%)" }}
-                    />
                   </div>
                 </FadeUp>
               ))}
