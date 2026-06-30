@@ -65,26 +65,30 @@ const features = [
 ];
 
 const featured = [
-  { name: "Chicken Club Sandwich", desc: "Loaded with grilled chicken, fresh veggies, and house sauce", img: IMAGES.sandwichesMojitos, tag: "Best Seller" },
-  { name: "Bambaiya Sandwich", desc: "Mumbai-style street sandwich with a gourmet twist", img: IMAGES.sandwichCoffee, tag: "Fan Favourite" },
-  { name: "Lemon Litchi Cooler", desc: "Tropical blend of litchi and citrus — refreshingly bold", img: IMAGES.mocktails, tag: "Signature" },
-  { name: "Cold Coffee", desc: "Rich espresso blended with chilled milk — the classic done right", img: IMAGES.hotCoffee, tag: "Must Try" },
-  { name: "Death By Strawberry", desc: "Chocolate-dipped strawberries served in a spectacular glass", img: IMAGES.deathByStrawberry, tag: "Showstopper" },
-  { name: "Premium Mocktails", desc: "Crafted mocktails that look as stunning as they taste", img: IMAGES.mocktailsColor, tag: "Instagram-worthy" },
+  { name: "Signature Mojitos", desc: "Vibrant & refreshing — crafted against our iconic motorcycle mural", img: IMAGES.motoMojitos, tag: "Best Seller" },
+  { name: "Ice Cream Sundae", desc: "Premium sundae with chocolate drizzle and exotic garnish", img: IMAGES.iceCreamSundae, tag: "Showstopper" },
+  { name: "Skull Glass Cooler", desc: "Our iconic skull glass — bold flavours, bolder presentation", img: IMAGES.skullGlass2, tag: "Signature" },
+  { name: "Layered Mocktail", desc: "Stunning layers of colour in every refreshing sip", img: IMAGES.layeredMocktail, tag: "Must Try" },
+  { name: "Choco Crepe", desc: "Rich chocolate crepe with fresh strawberry — pure indulgence", img: IMAGES.chocoCrepe, tag: "Fan Favourite" },
+  { name: "Death By Strawberry", desc: "Chocolate-dipped strawberries — our legendary dessert", img: IMAGES.deathByStrawberry, tag: "Instagram-worthy" },
 ];
 
 const gallery = [
   IMAGES.exteriorNight,
+  IMAGES.motoMojitos,
   IMAGES.interiorBike,
+  IMAGES.iceCreamSundae,
   IMAGES.mocktails,
   IMAGES.hotCoffee,
   IMAGES.sandwichesMojitos,
   IMAGES.deathByStrawberry,
+  IMAGES.chocoCrepe,
+  IMAGES.skullGlass2,
   IMAGES.chocoCake,
   IMAGES.cinnamonSkull,
   IMAGES.berryMocktail,
-  IMAGES.mocktailSandwich,
-  IMAGES.spicyNoodles,
+  IMAGES.layeredMocktail,
+  IMAGES.chocolateSandwich,
   IMAGES.chocoStrawberries,
 ];
 

@@ -15,9 +15,21 @@ import chocoCake from "@assets/WhatsApp_Image_2026-06-29_at_13.43.12_(1)_1782827
 import berryMocktail from "@assets/WhatsApp_Image_2026-06-29_at_13.43.12_1782827845550.jpeg";
 import spicyNoodles from "@assets/WhatsApp_Image_2026-06-29_at_13.43.09_1782827845553.jpeg";
 
+import iceCreamSundae from "@assets/image_1782829124171.png";
+import chocolateSandwich from "@assets/image_1782829142085.png";
+import chocoCrepe from "@assets/image_1782829158987.png";
+import chef from "@assets/image_1782829216829.png";
+import layeredMocktail from "@assets/image_1782829272909.png";
+import exteriorDay from "@assets/image_1782829315011.png";
+import skullGlass2 from "@assets/image_1782829358595.png";
+import motoMojitos from "@assets/image_1782829384416.png";
+import birthday1 from "@assets/image_1782829457426.png";
+import birthday2 from "@assets/image_1782829475477.png";
+
 export const IMAGES = {
   exteriorNight,
   exteriorAlt,
+  exteriorDay,
   interiorBike,
   mocktails,
   mocktailsColor,
@@ -31,5 +43,14 @@ export const IMAGES = {
   chocoStrawberries,
   chocoCake,
   berryMocktail,
-  spicyNoodles
+  spicyNoodles,
+  iceCreamSundae,
+  chocolateSandwich,
+  chocoCrepe,
+  chef,
+  layeredMocktail,
+  skullGlass2,
+  motoMojitos,
+  birthday1,
+  birthday2,
 };

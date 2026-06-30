@@ -20,17 +20,23 @@ function FadeUp({ children, className = "", delay = 0 }: { children: React.React
 
 const gallery = [
   IMAGES.exteriorNight,
+  IMAGES.exteriorDay,
+  IMAGES.motoMojitos,
   IMAGES.interiorBike,
+  IMAGES.iceCreamSundae,
   IMAGES.mocktails,
   IMAGES.hotCoffee,
   IMAGES.sandwichesMojitos,
   IMAGES.deathByStrawberry,
+  IMAGES.chocoCrepe,
   IMAGES.chocoCake,
   IMAGES.cinnamonSkull,
+  IMAGES.skullGlass2,
+  IMAGES.layeredMocktail,
   IMAGES.berryMocktail,
-  IMAGES.mocktailSandwich,
-  IMAGES.spicyNoodles,
-  IMAGES.chocoStrawberries,
+  IMAGES.chocolateSandwich,
+  IMAGES.birthday1,
+  IMAGES.birthday2,
 ];
 
 const infoCards = [

@@ -171,12 +171,15 @@ const beverageSections: { name: string; items: string[] }[] = [
 
 /* Photos shown as a quality/hygiene showcase — not tied to any specific item */
 const qualityPhotos = [
-  { img: IMAGES.sandwichesMojitos, label: "Freshly Prepared" },
+  { img: IMAGES.motoMojitos, label: "Freshly Prepared" },
   { img: IMAGES.hotCoffee, label: "Handcrafted Coffee" },
-  { img: IMAGES.deathByStrawberry, label: "Premium Desserts" },
-  { img: IMAGES.mocktailsColor, label: "Signature Mocktails" },
+  { img: IMAGES.iceCreamSundae, label: "Premium Desserts" },
+  { img: IMAGES.chocoCrepe, label: "Choco Crepe" },
+  { img: IMAGES.chocolateSandwich, label: "Artisan Bakes" },
+  { img: IMAGES.layeredMocktail, label: "Signature Mocktails" },
+  { img: IMAGES.skullGlass2, label: "Unique Serves" },
+  { img: IMAGES.deathByStrawberry, label: "Showstoppers" },
   { img: IMAGES.spicyNoodles, label: "Bold Flavours" },
-  { img: IMAGES.chocoCake, label: "Decadent Sweets" },
 ];
 
 function VegIcon({ veg }: { veg?: boolean }) {

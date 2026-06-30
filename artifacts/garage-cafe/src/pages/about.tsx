@@ -23,7 +23,7 @@ const timeline = [
     year: "01",
     title: "Chef's Passion",
     desc: "It all started with a simple belief — that great food should feel like a warm hug. Our founder's passion for bold flavours and fresh ingredients laid the foundation for everything The Garage Cafe stands for.",
-    img: IMAGES.sandwichCoffee,
+    img: IMAGES.chef,
   },
   {
     year: "02",
@@ -54,12 +54,16 @@ const timeline = [
 const showcasePhotos = [
   { img: IMAGES.interiorBike, label: "Premium Ambience" },
   { img: IMAGES.exteriorNight, label: "Iconic Exterior" },
-  { img: IMAGES.mocktails, label: "Signature Drinks" },
+  { img: IMAGES.exteriorDay, label: "Our Garage" },
+  { img: IMAGES.motoMojitos, label: "Signature Drinks" },
   { img: IMAGES.deathByStrawberry, label: "Showstopper Desserts" },
-  { img: IMAGES.sandwichesMojitos, label: "Handcrafted Food" },
-  { img: IMAGES.mocktailsColor, label: "Premium Mocktails" },
-  { img: IMAGES.cinnamonSkull, label: "Unique Presentations" },
-  { img: IMAGES.spicyNoodles, label: "Bold Flavours" },
+  { img: IMAGES.iceCreamSundae, label: "Artisan Desserts" },
+  { img: IMAGES.chocoCrepe, label: "Choco Crepe" },
+  { img: IMAGES.chocolateSandwich, label: "Handcrafted Food" },
+  { img: IMAGES.layeredMocktail, label: "Premium Mocktails" },
+  { img: IMAGES.skullGlass2, label: "Unique Presentations" },
+  { img: IMAGES.birthday1, label: "Special Occasions" },
+  { img: IMAGES.birthday2, label: "Celebrations" },
 ];
 
 export default function About() {
