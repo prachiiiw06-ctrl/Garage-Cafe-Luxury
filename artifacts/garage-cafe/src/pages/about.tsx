@@ -24,6 +24,7 @@ const timeline = [
     title: "Chef's Passion",
     desc: "It all started with a simple belief — that great food should feel like a warm hug. Our founder's passion for bold flavours and fresh ingredients laid the foundation for everything The Garage Cafe stands for.",
     img: IMAGES.chef,
+    imgPosition: "object-top",
   },
   {
     year: "02",
@@ -141,7 +142,7 @@ export default function About() {
                         <img
                           src={item.img}
                           alt={item.title}
-                          className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                          className={`w-full h-64 object-cover ${item.imgPosition ?? ""} group-hover:scale-105 transition-transform duration-500`}
                           loading="lazy"
                         />
                         <div className="absolute inset-0 bg-gradient-to-br from-[#D97706]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
