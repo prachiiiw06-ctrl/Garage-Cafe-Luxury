@@ -78,11 +78,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
             {/* CTA + Hamburger */}
             <div className="flex items-center gap-4">
-              <Link href="/menu">
-                <button className="hidden md:block bg-[#D97706] hover:bg-[#B87333] text-white font-['Montserrat'] font-semibold text-sm tracking-wider px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#D97706]/30 hover:scale-105">
-                  Order Now
-                </button>
-              </Link>
+              <a
+                href="https://zomato.onelink.me/xqzv/votaxb7g"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden md:flex items-center gap-2 bg-[#E23744] hover:bg-[#c42f3b] text-white font-['Montserrat'] font-semibold text-sm tracking-wider px-5 py-2.5 rounded-full transition-all duration-300 hover:shadow-lg hover:shadow-[#E23744]/30 hover:scale-105"
+              >
+                <svg className="w-3.5 h-3.5 fill-white flex-shrink-0" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 6.5l-6.5 6.5H8v-2l6.5-6.5H16.5v2z"/>
+                </svg>
+                Order Now
+              </a>
               <button
                 className="md:hidden text-white p-2"
                 onClick={() => setMenuOpen(!menuOpen)}
@@ -105,11 +111,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </div>
               </Link>
             ))}
-            <Link href="/menu">
-              <button className="mt-4 w-full bg-[#D97706] text-white font-['Montserrat'] font-semibold tracking-wider py-3 rounded-full">
-                Order Now
-              </button>
-            </Link>
+            <a
+              href="https://zomato.onelink.me/xqzv/votaxb7g"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 w-full flex items-center justify-center gap-2 bg-[#E23744] text-white font-['Montserrat'] font-semibold tracking-wider py-3 rounded-full"
+            >
+              <svg className="w-4 h-4 fill-white flex-shrink-0" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 6.5l-6.5 6.5H8v-2l6.5-6.5H16.5v2z"/>
+              </svg>
+              Order Now
+            </a>
           </div>
         )}
       </nav>

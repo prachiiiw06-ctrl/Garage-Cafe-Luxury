@@ -234,6 +234,19 @@ export default function MenuPage() {
             </h1>
             <div className="w-20 h-0.5 bg-[#D97706] mx-auto mt-4" />
             <p className="text-white/50 mt-4 font-['Playfair_Display'] italic text-lg">Handcrafted with passion. Served with love.</p>
+            <div className="mt-7">
+              <a
+                href="https://zomato.onelink.me/xqzv/votaxb7g"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 bg-[#E23744] hover:bg-[#c42f3b] text-white font-['Montserrat'] font-semibold tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#E23744]/30 text-sm"
+              >
+                <svg className="w-5 h-5 fill-white flex-shrink-0" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.248l-7.938 7.938H7.5v-2.125l7.938-7.938h2.124v2.125zm-1.062-1.063h-1.063l-7.937 7.938v1.062h1.063l7.937-7.937V7.185z"/>
+                </svg>
+                Order on Zomato
+              </a>
+            </div>
           </FadeUp>
         </div>
       </div>
@@ -273,20 +286,33 @@ export default function MenuPage() {
 
       {/* Main Tabs: FOOD | BEVERAGES */}
       <div className="sticky top-16 lg:top-20 z-30 bg-[#111111]/95 backdrop-blur-md border-b border-white/10">
-        <div className="max-w-6xl mx-auto px-4 flex gap-1 py-3">
-          {(["food", "beverages"] as const).map((tab) => (
-            <button
-              key={tab}
-              onClick={() => setMainTab(tab)}
-              className={`font-['Montserrat'] font-semibold text-sm tracking-widest uppercase px-6 py-2.5 rounded-full transition-all duration-300 ${
-                mainTab === tab
-                  ? "bg-[#D97706] text-white shadow-lg shadow-[#D97706]/30"
-                  : "text-white/50 hover:text-white"
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
+        <div className="max-w-6xl mx-auto px-4 flex items-center justify-between py-3">
+          <div className="flex gap-1">
+            {(["food", "beverages"] as const).map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setMainTab(tab)}
+                className={`font-['Montserrat'] font-semibold text-sm tracking-widest uppercase px-6 py-2.5 rounded-full transition-all duration-300 ${
+                  mainTab === tab
+                    ? "bg-[#D97706] text-white shadow-lg shadow-[#D97706]/30"
+                    : "text-white/50 hover:text-white"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+          <a
+            href="https://zomato.onelink.me/xqzv/votaxb7g"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#E23744] hover:bg-[#c42f3b] text-white font-['Montserrat'] font-semibold tracking-wider uppercase px-5 py-2.5 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#E23744]/30 text-xs"
+          >
+            <svg className="w-4 h-4 fill-white flex-shrink-0" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 6.5l-6.5 6.5H8v-2l6.5-6.5H16.5v2z"/>
+            </svg>
+            Order on Zomato
+          </a>
         </div>
       </div>
 
@@ -364,11 +390,31 @@ export default function MenuPage() {
         )}
       </div>
 
-      {/* Bottom note */}
-      <div className="bg-[#0d0d0d] border-t border-white/5 py-8 px-4 text-center">
-        <p className="text-white/40 text-sm font-['Poppins'] italic">
-          All items prepared fresh to order. Please inform us of any allergies.
-        </p>
+      {/* Zomato Order CTA */}
+      <div className="bg-[#0d0d0d] border-t border-white/5 py-14 px-4">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-white/30 text-xs font-['Montserrat'] font-semibold tracking-[0.4em] uppercase mb-3">Online Ordering</p>
+          <h3 className="font-['Bebas_Neue'] text-4xl sm:text-5xl text-white tracking-wider mb-2">
+            HUNGRY? ORDER <span className="text-[#E23744]">NOW</span>
+          </h3>
+          <p className="text-white/40 text-sm font-['Playfair_Display'] italic mb-7">
+            Get The Garage Cafe delivered straight to your door via Zomato
+          </p>
+          <a
+            href="https://zomato.onelink.me/xqzv/votaxb7g"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-[#E23744] hover:bg-[#c42f3b] text-white font-['Montserrat'] font-semibold tracking-widest uppercase px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-[#E23744]/40 text-sm"
+          >
+            <svg className="w-5 h-5 fill-white flex-shrink-0" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.5 6.5l-6.5 6.5H8v-2l6.5-6.5H16.5v2z"/>
+            </svg>
+            Order on Zomato
+          </a>
+          <p className="text-white/20 text-xs font-['Poppins'] mt-5 italic">
+            All items prepared fresh to order. Please inform us of any allergies.
+          </p>
+        </div>
       </div>
     </div>
   );
