@@ -26,6 +26,13 @@ import motoMojitos from "@assets/image_1782829384416.png";
 import birthday1 from "@assets/image_1782829457426.png";
 import birthday2 from "@assets/image_1782829475477.png";
 
+import merchTshirt from "@assets/generated_images/merch_tshirt.png";
+import merchCap from "@assets/generated_images/merch_cap.png";
+import merchMug from "@assets/generated_images/merch_mug.png";
+import merchTote from "@assets/generated_images/merch_tote.png";
+import merchHoodie from "@assets/generated_images/merch_hoodie.png";
+import merchPins from "@assets/generated_images/merch_pins.png";
+
 export const IMAGES = {
   exteriorNight,
   exteriorAlt,
@@ -53,4 +60,10 @@ export const IMAGES = {
   motoMojitos,
   birthday1,
   birthday2,
+  merchTshirt,
+  merchCap,
+  merchMug,
+  merchTote,
+  merchHoodie,
+  merchPins,
 };

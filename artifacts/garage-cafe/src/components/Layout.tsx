@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { useCart } from "@/context/CartContext";
 import CartDrawer from "@/components/CartDrawer";
+import { useMerchCart } from "@/context/MerchCartContext";
+import MerchCartDrawer from "@/components/MerchCartDrawer";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [scrolled, setScrolled] = useState(false);
@@ -9,6 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const [showTop, setShowTop] = useState(false);
   const [location] = useLocation();
   const { totalCount, openCart } = useCart();
+  const { totalCount: merchCount, openCart: openMerchCart } = useMerchCart();
 
   useEffect(() => {
     const onScroll = () => {
@@ -27,6 +30,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/menu", label: "Menu" },
+    { href: "/rides", label: "Rides" },
+    { href: "/shop", label: "Shop" },
     { href: "/about", label: "About" },
     { href: "/visit", label: "Visit Us" },
   ];
@@ -97,6 +102,22 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 )}
               </button>
 
+              {/* Merch Bag Button */}
+              <button
+                onClick={openMerchCart}
+                className="relative hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 hover:border-[#B87333]/50 transition-all duration-300 hover:scale-105"
+                title="View Merch Bag"
+              >
+                <svg className="w-5 h-5 text-white/70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+                {merchCount > 0 && (
+                  <span className="absolute -top-1.5 -right-1.5 min-w-[18px] h-[18px] bg-[#B87333] text-white text-[10px] font-['Montserrat'] font-bold rounded-full flex items-center justify-center px-1 shadow-lg">
+                    {merchCount > 99 ? "99+" : merchCount}
+                  </span>
+                )}
+              </button>
+
               {/* Order Now (desktop) */}
               <a
                 href="https://zomato.onelink.me/xqzv/votaxb7g"
@@ -143,6 +164,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 </svg>
                 Cart {totalCount > 0 && `(${totalCount})`}
               </button>
+              <button
+                onClick={() => { openMerchCart(); setMenuOpen(false); }}
+                className="flex-1 flex items-center justify-center gap-2 border border-[#B87333]/50 text-[#B87333] font-['Montserrat'] font-semibold tracking-wider py-3 rounded-full"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                </svg>
+                Bag {merchCount > 0 && `(${merchCount})`}
+              </button>
+            </div>
+            <div className="flex gap-3 mt-3">
               <a
                 href="https://zomato.onelink.me/xqzv/votaxb7g"
                 target="_blank"
@@ -159,8 +191,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         )}
       </nav>
 
-      {/* Cart Drawer */}
+      {/* Cart Drawers */}
       <CartDrawer />
+      <MerchCartDrawer />
 
       {/* Main Content */}
       <main>{children}</main>
